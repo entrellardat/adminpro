@@ -20,11 +20,12 @@ import { SharedModule } from 'app/shared/shared.module';
     AppComponent,
     LoginComponent,
     RegisterComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     APP_ROUTES,
-    PagesModule   
+    PagesModule ,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
