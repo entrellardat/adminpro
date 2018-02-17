@@ -15,16 +15,12 @@ export class SettingsService {
 
   guardarAjustes() { 
     // convierte de JSON a STRING
-    console.log('guardando en el localstorage');
     localStorage.setItem('ajustes',JSON.stringify(this.ajustes));
-    console.log(this.ajustes);
   }
 
   cargarAjustes(){
     if (localStorage.getItem('ajustes')){
-      console.log('cargando ajustes...');
       this.ajustes = JSON.parse(localStorage.getItem('ajustes'));
-
       this.aplicarTema(this.ajustes.tema);
     }else{
       console.log('valores por defecto');

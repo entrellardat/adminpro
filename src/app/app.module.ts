@@ -13,7 +13,7 @@ import { APP_ROUTES } from 'app/app.routes';
 // Modulos
 import { PagesModule } from './pages/pages.module';
 import { SharedModule } from 'app/shared/shared.module';
-import { SettingsService } from 'app/services/settings/settings.service';
+import { ServiceModule } from './services/service.module';
 
 @NgModule({
   declarations: [
@@ -25,9 +25,10 @@ import { SettingsService } from 'app/services/settings/settings.service';
     BrowserModule,
     APP_ROUTES,
     PagesModule ,
-    FormsModule
+    FormsModule,
+    ServiceModule
   ],
-  providers: [SettingsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

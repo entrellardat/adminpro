@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, ElementRef, Renderer2 } from '@angular/core';
 import { DOCUMENT } from '@angular/platform-browser';
 import { element } from 'protractor';
-import { SettingsService } from 'app/services/settings/settings.service';
+import { SettingsService } from  '../../services/service.index' ;
 
 @Component({
   selector: 'app-account-settings',
@@ -25,7 +25,6 @@ export class AccountSettingsComponent implements OnInit {
     const selectores: any = document.getElementsByClassName('selector');
 
     for (const ref of selectores){
-        console.log(ref.classList);
         ref.classList.remove('working');
     }
 
@@ -36,7 +35,6 @@ export class AccountSettingsComponent implements OnInit {
   colocarCheck(){
     const selectores: any = document.getElementsByClassName('selector');
     const tema = this._ajustes.ajustes.tema ;
-    console.log('cc' + tema);
     for (const ref of selectores){
       if( ref.getAttribute('data-theme') === tema){
         ref.classList.add('working');
