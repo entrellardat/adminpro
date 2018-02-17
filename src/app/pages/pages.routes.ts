@@ -1,3 +1,4 @@
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { RouterModule   , Routes} from '@angular/router';
 import { PagesComponent } from 'app/pages/pages.component';
 import { DashboardComponent } from 'app/pages/dashboard/dashboard.component';
@@ -11,6 +12,7 @@ const pagesRoutes : Routes = [
             { path : 'dashboard' , component : DashboardComponent },
             { path : 'progress' , component : ProgressComponent} , 
             { path : 'graficas1' , component : Graficas1Component} ,
+            { path : 'account-settings' , component: AccountSettingsComponent},
             { path : '' , redirectTo : '/dashboard'  , pathMatch: 'full'} 
         ]
     } 
