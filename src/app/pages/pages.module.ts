@@ -10,6 +10,8 @@ import { IncrementadorComponent } from 'app/components/incrementador/incrementad
 import { ChartsModule } from 'ng2-charts';
 import { GraficoDonaComponent } from 'app/components/grafico-dona/grafico-dona.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { PromesasComponent } from './promesas/promesas.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 // temporal
 
@@ -22,7 +24,9 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
         PagesComponent ,
         IncrementadorComponent,
         GraficoDonaComponent,
-        AccountSettingsComponent
+        AccountSettingsComponent,
+        PromesasComponent,
+        RxjsComponent
     ] ,
     exports: [
         DashboardComponent , 
