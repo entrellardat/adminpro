@@ -6,10 +6,12 @@ import { PagesComponent } from 'app/pages/pages.component';
 import { DashboardComponent } from 'app/pages/dashboard/dashboard.component';
 import { ProgressComponent } from 'app/pages/progress/progress.component';
 import { Graficas1Component } from 'app/pages/graficas1/graficas1.component';
+import { loginGuard } from '../services/guards/loginGuard.service';
 
 const pagesRoutes : Routes = [
     { path : '' , 
         component: PagesComponent ,
+        canActivate : [ loginGuard ] ,
         children : [
             { path : 'dashboard' , component : DashboardComponent  , data : { titulo : 'Dashboard' }},
             { path : 'progress' , component : ProgressComponent   , data : { titulo : 'ProgressBars' }} , 
