@@ -20,7 +20,9 @@ export class LoginComponent implements OnInit {
   auth2 : any ;
   constructor( public router: Router ,
                public usuario_: UsuarioService
-  ) { }
+  ) { 
+
+  }
 
   ngOnInit() {
     init_plugins();

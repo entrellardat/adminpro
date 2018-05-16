@@ -5,12 +5,14 @@ import { NopagefoundComponent } from 'app/shared/nopagefound/nopagefound.compone
 import { HeaderComponent } from 'app/shared/header/header.component';
 import { BreadcrumbsComponent } from 'app/shared/breadcrumbs/breadcrumbs.component';
 import { RouterModule } from '@angular/router';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 @NgModule({
     imports :[
         RouterModule,
-        CommonModule
+        CommonModule,
+        PipesModule
     ],
     declarations : [
         BreadcrumbsComponent,

@@ -1,3 +1,4 @@
+import { SubirArchivoService } from '../../services/subir-archivo.service';
 import { Router } from '@angular/router';
 import { Usuario } from './../../models/usuario.model';
 import { URL_SERVICIOS } from './../../config/config';
@@ -10,7 +11,7 @@ import { Observable } from 'rxjs/Observable';
 export class UsuarioService {
   usuario : Usuario ;
   token : string ;
-  constructor(public http: HttpClient  , public router : Router) {
+  constructor(public http: HttpClient  , public router : Router ,public _subirArchivo :  SubirArchivoService) {
         this.cargarStorage();
   }
   login(usuario: Usuario , recordar: false){
@@ -18,12 +19,18 @@ export class UsuarioService {
     const url = URL_SERVICIOS + '/login/' ;
 
     if (recordar)
-    { localStorage.setItem('email', usuario.email); }else{ localStorage.removeItem('email');}
+    {
+      localStorage.setItem('email', usuario.email); }
+    else
+    {
+      localStorage.removeItem('email');
+    }
 
-    return this.http.post(url , usuario)
+     return this.http.post(url , usuario)
                     .map( (resp : any) => {
-                      this.guardarStorage(resp.id , resp.token , resp.usuario);
-                      return true;
+                        console.log('datos:' + usuario);
+                        this.guardarStorage(resp.id , resp.token , resp.usuario);
+                        return true;
                     });
   }
 
@@ -38,8 +45,8 @@ export class UsuarioService {
 
   cargarStorage() {
     if (localStorage.getItem('token')) {
-      this.token = localStorage.getItem('item');
-      this.usuario =  JSON.parse( localStorage.getItem('usuario'));
+      this.token = localStorage.getItem('token');
+      this.usuario =  JSON.parse(localStorage.getItem('usuario')); 
     }
     else{
       this.token = '';
@@ -72,12 +79,31 @@ export class UsuarioService {
   }
 
   logout() {
-    console.log('Logout...');
     this.token = '' ;
     this.usuario = null ;
     localStorage.removeItem('token');
     localStorage.removeItem('usuario');
-    this.router.navigate(['/login'])
+    this.router.navigate(['/login']);
   }
+ 
+   actualizarUsuario (usuario : Usuario) {
+     console.log('usuario a actualziar' + usuario);
+     let url = URL_SERVICIOS + '/usuario/' + usuario._id ;
+     url += '?token=' + this.token ;
+     return this.http.put(url , usuario)
+                     .map((resp: any)=> {
+                        this.guardarStorage(resp.usuario._id , this.token , this.usuario) ;
+                        swal('Usuario actualizado' , usuario.nombre , 'success');
+                        return true;
+                     });
+   }
+
+   cambiarImagen(archivo : any , id : string ) {
+      this._subirArchivo.subirArchivo(archivo, 'usuarios', id).then((resp:any)=>{
+           this.usuario.img = resp.archivo.img ;
+           swal('imagen actualziada', this.usuario.nombre , 'success');
+           this.guardarStorage(id , this.token , this.usuario);
+       }).catch( error => console.log(error) );
+}
 
 }

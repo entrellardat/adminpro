@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { DashboardComponent } from 'app/pages/dashboard/dashboard.component';
 import { ProgressComponent } from 'app/pages/progress/progress.component';
@@ -12,6 +13,8 @@ import { GraficoDonaComponent } from 'app/components/grafico-dona/grafico-dona.c
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { PipesModule } from '../pipes/pipes.module';
+import { ProfileComponent } from './profile/profile.component';
 
 // temporal
 
@@ -26,7 +29,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         GraficoDonaComponent,
         AccountSettingsComponent,
         PromesasComponent,
-        RxjsComponent
+        RxjsComponent,
+        ProfileComponent  
     ] ,
     exports: [
         DashboardComponent , 
@@ -38,7 +42,9 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         SharedModule,
         PAGES_ROUTES ,
         FormsModule ,
-        ChartsModule
+        ChartsModule , 
+        PipesModule , 
+        CommonModule
     ]
 // tslint:disable-next-line:eofline
 }) export class PagesModule { }

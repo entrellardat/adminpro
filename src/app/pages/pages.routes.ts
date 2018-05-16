@@ -7,6 +7,7 @@ import { DashboardComponent } from 'app/pages/dashboard/dashboard.component';
 import { ProgressComponent } from 'app/pages/progress/progress.component';
 import { Graficas1Component } from 'app/pages/graficas1/graficas1.component';
 import { loginGuard } from '../services/guards/loginGuard.service';
+import { ProfileComponent } from './profile/profile.component';
 
 const pagesRoutes : Routes = [
     { path : '' , 
@@ -17,6 +18,7 @@ const pagesRoutes : Routes = [
             { path : 'progress' , component : ProgressComponent   , data : { titulo : 'ProgressBars' }} , 
             { path : 'graficas1' , component : Graficas1Component , data : { titulo : 'Graficas' }} ,
             { path : 'account-settings' , component: AccountSettingsComponent  , data : {titulo : 'Ajustes de tema' } },
+            { path: 'profile' , component : ProfileComponent , data : { titulo : 'Perfil de usuario'}},
             { path : 'promesas' , component : PromesasComponent  , data : { titulo : 'Promesas' }}, 
             { path : 'rxjs' , component: RxjsComponent , data : { titulo : 'Rxjs'}  }  , 
             { path : '' , redirectTo : '/dashboard'  , pathMatch: 'full'} 
