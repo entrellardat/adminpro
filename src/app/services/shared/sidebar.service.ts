@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+declare function init_plugins();
 
 @Injectable()
 export class SidebarService {
@@ -14,8 +15,17 @@ export class SidebarService {
         { titulo : 'Promesas' , url : '/promesas'  } ,
         { titulo : 'Rxjs' , url : '/rxjs'}
       ]
+    },
+    {
+      titulo : 'Mantenimientos'  , 
+      icono : 'mdi mdi-folder-lock-open' ,
+      submenu : [
+        { titulo : 'Usuarios' , url : '/usuarios' } ,
+        { titulo : 'Hospitales' , url : '/hospitales'} , 
+        { titulo : 'Medicos' , url : '/medicos'}
+      ]
     }
   ];
-  constructor() { }
+  constructor() {  init_plugins(); }
 
 }

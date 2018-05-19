@@ -6,7 +6,6 @@ import { CanActivate, Router } from '@angular/router';
 export class loginGuard implements CanActivate {
   canActivate(): boolean {
     if (this._usuarioServices.estaLogueado()){
-      console.log('paso el guard');
       return true;
     }
 

@@ -14,7 +14,6 @@ export class SidebarComponent implements OnInit {
   usuario : Usuario;
   constructor( public _sidebar: SidebarService , public _usuarioService : UsuarioService) { 
     this.usuario = _usuarioService.usuario;
-    console.log('usuario: ' + this.usuario);
   }
 
   ngOnInit() {
