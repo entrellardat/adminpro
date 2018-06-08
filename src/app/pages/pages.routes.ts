@@ -1,3 +1,4 @@
+import { MedicoComponent } from './medicos/medico.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { PromesasComponent } from './promesas/promesas.component';
@@ -9,6 +10,8 @@ import { ProgressComponent } from 'app/pages/progress/progress.component';
 import { Graficas1Component } from 'app/pages/graficas1/graficas1.component';
 import { loginGuard } from '../services/guards/loginGuard.service';
 import { ProfileComponent } from './profile/profile.component';
+import { HospitalesComponent } from './hospitales/hospitales.component';
+import { MedicosComponent } from './medicos/medicos.component';
 
 const pagesRoutes : Routes = [
     { path : '' , 
@@ -23,6 +26,9 @@ const pagesRoutes : Routes = [
             { path : 'promesas' , component : PromesasComponent  , data : { titulo : 'Promesas' }}, 
             { path : 'rxjs' , component: RxjsComponent , data : { titulo : 'Rxjs'}  }  , 
             { path : 'usuarios' , component :  UsuariosComponent , data : { titulo : 'Mantenimiento de usuarios'  } } ,
+            { path : 'hospitales' , component :  HospitalesComponent , data : { titulo : 'Mantenimiento de hospitales'  } } ,
+            { path : 'medicos' , component: MedicosComponent , data : { titulo : 'Mantenimiento de medicos'  } } ,
+            { path : 'medico/:id' , component: MedicoComponent , data : { titulo : 'Mantenimiento de medico'  } } ,
             { path : '' , redirectTo : '/dashboard'  , pathMatch: 'full'} , 
         ]
     } 

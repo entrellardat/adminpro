@@ -5,7 +5,7 @@ import { ModalUploadService } from './modal-upload.service';
 
 @Component({
   selector: 'app-modal-upload',
-  templateUrl: './modal-upload.component.html']
+  templateUrl: './modal-upload.component.html'
 })
 export class ModalUploadComponent implements OnInit {
   usuario: Usuario ;

@@ -24,6 +24,7 @@ export class SubirArchivoService {
       };
 
       const url = `${URL_SERVICIOS}/upload/${tipo}/${id}`;
+      console.log('url actualizar: ' + url );
       xhr.open('PUT' , url , true);
       xhr.send(formdata);
 
