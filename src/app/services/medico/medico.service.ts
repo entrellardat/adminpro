@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { URL_SERVICIOS } from 'app/config/config';
 import { UsuarioService } from '../usuario/usuario.service';
+import { Medico } from '../../models/medico.model';
+
 
 @Injectable()
 export class MedicoService {
@@ -31,4 +33,30 @@ export class MedicoService {
                       return resp;
                     });
   }
+
+  guardarMedico(medico : Medico) {
+    let url = URL_SERVICIOS + '/medico';
+    if (medico._id){
+       url += '/' + medico._id ;
+       url += '?token=' + this._usuarioService.token;
+        return this.http.put(url , medico).map( (resp:any)=>{
+        swal('Medico actuaqlizado' , medico.nombre , 'success');
+        this.cargarMedico(medico._id);
+       })
+    }
+    else{
+      url += '?token=' + this._usuarioService.token;
+      return this.http.post(url,medico)
+        .map( (resp :any) => {
+          swal('Medico creado' , medico. nombre , 'success')
+          return resp.medico;
+      });
+    }
+  }
+
+  cargarMedico(id: string){
+    let url = URL_SERVICIOS + '/medico/' + id ;
+    return this.http.get(url).map( (resp : any) => resp.medico );
+  }
+
 }

@@ -14,7 +14,6 @@ export class HospitalService {
 
   cargarHospitales() {
     const url = `${URL_SERVICIOS}/hospital`;
-    console.log(url);
     return this.http.get(url);
   }
 
@@ -31,20 +30,18 @@ export class HospitalService {
 
   actualizarHospital(hospital : Hospital){
     const url = 'http://localhost:3000/hospital/' + hospital._id + '?token=' + this._usuarioService.token;
-    this.hospital 
-    console.log(hospital);
     return this.http.put(url , hospital)
                     .map( (resp:any) =>  resp.hospital) ;
   }
 
   obtenerHospital(id : string){
+    console.log(id);
     const url = 'http://localhost:3000/hospital/' + id ;
-    return this.http.get(url).map( (resp: any) => resp.hospita);
+    return this.http.get(url).map( (resp: any) => resp.hospital);
   }
 
   crearHospital(nombre) {
     const url = 'http://localhost:3000/hospital'  + '?token=' + this._usuarioService.token;
-    console.log(url);
     return this.http.post(url , { nombre: nombre })
                      .map( (resp: any) => { console.log( resp.hospital)} );
   }

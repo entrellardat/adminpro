@@ -54,7 +54,7 @@ import { MedicoComponent } from './medicos/medico.component';
         FormsModule ,
         ChartsModule , 
         PipesModule , 
-        CommonModule
+        CommonModule ,
     ]
 // tslint:disable-next-line:eofline
 }) export class PagesModule { }
